@@ -35,7 +35,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
     <link
-      href="/cdn.prod.website-files.com/67ea56a5380697566f273b1c/css/third-factor.webflow.shared.da363634c.css"
+      href="cdn.prod.website-files.com/67ea56a5380697566f273b1c/css/third-factor.webflow.shared.da363634c.css"
       rel="stylesheet"
       type="text/css"
     />
@@ -1995,5 +1995,39 @@
         };
       });
     </script>
+    <script>
+  const form = document.getElementById("email-form");
+
+  // Load existing bookings from localStorage or empty array
+  const bookings = JSON.parse(localStorage.getItem("demoBookings")) || [];
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // prevent default GET submission
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim().toLowerCase();
+
+    // Check if this email already exists in bookings
+    const alreadyBooked = bookings.some(
+      (entry) => entry.email === email
+    );
+
+    if (alreadyBooked) {
+      alert("❌ You've already booked a demo with this email.");
+      return;
+    }
+
+    // Save new booking
+    bookings.push({ name, email });
+    localStorage.setItem("demoBookings", JSON.stringify(bookings));
+
+    // Show success message
+    alert(`✅ Thank you ${name}, your demo has been booked!`);
+
+    // Optional: reset the form
+    form.reset();
+  });
+</script>
+
   </body>
 </html>
