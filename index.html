@@ -1808,226 +1808,195 @@
       });
     </script>
 
-    <!-- gsap libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        window.onload = function () {
-          window.requestAnimationFrame(function () {
-            let listItems = document.querySelectorAll(
-              ".scroll-list-container-swiper .scroll-list-item-numberbox"
-            );
-            let textItems = document.querySelectorAll(
-              ".scroll-list-container .scroll-list-item-text"
-            );
-            let textDes = document.querySelectorAll(
-              ".scroll-list-container .scroll-list-item-text-des"
-            );
-            let numberBoxes = document.querySelectorAll(
-              ".scroll-list-container .scroll-list-item-numberbox"
-            );
-            let scrollSteps = [
-              ...document.querySelectorAll(
-                ".scroll-step-container .scroll-step-item"
-              ),
-            ].reverse();
-            function toggleActive(className, array, index) {
-              document
-                .querySelector("." + className)
-                .classList.remove(className);
-              array[index].classList.add(className);
-            }
-            function changeItem(index) {
-              //toggleActive("scroll-list-item-active",listItems,index);
-              //toggleActive("list-text-active",textItems,index);
-              //toggleActive("scroll-list-text-active",textDes,index);
-              //toggleActive("numberbox-active",numberBoxes,index);
-            }
-            gsap.registerPlugin(ScrollTrigger);
-            let mm = gsap.matchMedia();
-            mm.add("(max-width:990px)", () => {
-              console.log(listItems);
-              var swiper = new Swiper(".swiper", {
-                autoplay: true,
-                on: {
-                  slideChange: updateCustomPagination,
-                },
-              });
+ <!-- ✅ GSAP + ScrollTrigger + ScrollToPlugin (only once!) -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollToPlugin.min.js"></script>
 
-              function updateCustomPagination() {
-                console.log(listItems[swiper.realIndex]);
-                listItems.forEach((bullet) =>
-                  bullet.classList.remove("numberbox-active")
-                );
-                listItems[swiper.realIndex].classList.add("numberbox-active");
-              }
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // ✅ Register plugins
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-              listItems.forEach((bullet, index) => {
-                bullet.addEventListener("click", () => {
-                  //const index = parseInt(bullet.dataset.index);
-                  // console.log(index);
-                  swiper.slideTo(index);
-                });
-              });
-            });
-            mm.add("(min-width:991px)", () => {
-              let tl = gsap.timeline({
-                scrollTrigger: {
-                  trigger: ".scroll-box",
-                  pin: ".how-it-works-section",
-                  start: "center center",
-                  end: "+=1000",
-                  scrub: true,
-                },
-              });
-              let tl2 = gsap.timeline({
-                scrollTrigger: {
-                  trigger: "#integration-section-container",
-                  pin: true,
-                  start: "top top",
-                  end: "+=1500",
-                  scrub: true,
-                },
-              });
-              ScrollTrigger.refresh();
+    // ✅ ScrollTriggers & animations
+    let listItems = document.querySelectorAll(".scroll-list-container-swiper .scroll-list-item-numberbox");
+    let textItems = document.querySelectorAll(".scroll-list-container .scroll-list-item-text");
+    let textDes = document.querySelectorAll(".scroll-list-container .scroll-list-item-text-des");
+    let numberBoxes = document.querySelectorAll(".scroll-list-container .scroll-list-item-numberbox");
+    let scrollSteps = [...document.querySelectorAll(".scroll-step-container .scroll-step-item")].reverse();
 
-              tl.to(scrollSteps[0], { duration: 0.5 })
-                .to(textItems[0], { duration: 0.5, color: "#929292" }, ">")
-                .to(textItems[1], { duration: 0.5, color: "white" }, "<")
-                .to(
-                  numberBoxes[0],
-                  {
-                    duration: 0.5,
-                    background:
-                      "radial-gradient(circle, #020205, #020205 42%, #020205 82%)",
-                    borderColor: "#ffffff45",
-                    color: "#929292",
-                  },
-                  "<"
-                )
-                .to(
-                  numberBoxes[1],
-                  {
-                    duration: 0.5,
-                    background:
-                      "radial-gradient(circle, #fff, #d9f5fd 42%, #cfc2ee 82%)",
-                    borderColor: "transparent",
-                    color: "black",
-                  },
-                  "<"
-                )
-                .to(
-                  scrollSteps[0],
-                  {
-                    opacity: 0,
-                    delay: 0.4,
-                    duration: 0.1,
-                    onStart: () => changeItem(1), // Change to item 1 when scrolling down
-                    onReverseComplete: () => changeItem(0), // Change back to item 0 when scrolling up
-                  },
-                  "<"
-                )
-                .to(textItems[1], { duration: 0.5, color: "#929292" }, ">")
-                .to(textItems[2], { duration: 0.5, color: "white" }, "<")
-                .to(
-                  numberBoxes[1],
-                  {
-                    duration: 0.5,
-                    background:
-                      "radial-gradient(circle, #020205, #020205 42%, #020205 82%)",
-                    borderColor: "#ffffff45",
-                    color: "#929292",
-                  },
-                  "<"
-                )
-                .to(
-                  numberBoxes[2],
-                  {
-                    duration: 0.5,
-                    background:
-                      "radial-gradient(circle, #fff, #d9f5fd 42%, #cfc2ee 82%)",
-                    borderColor: "transparent",
-                    color: "black",
-                  },
-                  "<"
-                )
-                .to(
-                  scrollSteps[1],
-                  {
-                    opacity: 0,
-                    delay: 0.4,
-                    duration: 0.1,
-                    onStart: () => changeItem(2), // Change to item 2 when scrolling down
-                    onReverseComplete: () => changeItem(1), // Change back to item 1 when scrolling up
-                  },
-                  "<"
-                )
-                .to(scrollSteps[0], { duration: 0.5 }, ">");
+    function toggleActive(className, array, index) {
+      document.querySelector("." + className)?.classList.remove(className);
+      array[index].classList.add(className);
+    }
+    function changeItem(index) {
+      // Add logic here if needed
+    }
 
-              tl2
-                .from(".integration-mobile", {
-                  filter: "blur(4px)",
-                  top: "0%",
-                })
-                .from(
-                  ".integration-crm",
-                  {
-                    filter: "blur(4px)",
-                    top: "55%",
-                    left: "0%",
-                  },
-                  "<"
-                )
-                .from(
-                  ".integration-website",
-                  {
-                    filter: "blur(4px)",
-                    right: "0%",
-                    top: "55%",
-                  },
-                  "<"
-                );
+    let mm = gsap.matchMedia();
 
-              return () => {};
-            });
-          });
-        };
+    mm.add("(max-width: 990px)", () => {
+      var swiper = new Swiper(".swiper", {
+        autoplay: true,
+        on: {
+          slideChange: updateCustomPagination,
+        },
       });
-    </script>
-    <script>
+
+      function updateCustomPagination() {
+        listItems.forEach((bullet) => bullet.classList.remove("numberbox-active"));
+        listItems[swiper.realIndex].classList.add("numberbox-active");
+      }
+
+      listItems.forEach((bullet, index) => {
+        bullet.addEventListener("click", () => {
+          swiper.slideTo(index);
+        });
+      });
+    });
+
+    mm.add("(min-width: 991px)", () => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".scroll-box",
+          pin: ".how-it-works-section",
+          start: "center center",
+          end: "+=1000",
+          scrub: true,
+        },
+      });
+
+      let tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#integration-section-container",
+          pin: true,
+          start: "top top",
+          end: "+=1500",
+          scrub: true,
+        },
+      });
+
+      tl.to(scrollSteps[0], { duration: 0.5 })
+        .to(textItems[0], { duration: 0.5, color: "#929292" }, ">")
+        .to(textItems[1], { duration: 0.5, color: "white" }, "<")
+        .to(numberBoxes[0], {
+          duration: 0.5,
+          background: "radial-gradient(circle, #020205, #020205 42%, #020205 82%)",
+          borderColor: "#ffffff45",
+          color: "#929292",
+        }, "<")
+        .to(numberBoxes[1], {
+          duration: 0.5,
+          background: "radial-gradient(circle, #fff, #d9f5fd 42%, #cfc2ee 82%)",
+          borderColor: "transparent",
+          color: "black",
+        }, "<")
+        .to(scrollSteps[0], {
+          opacity: 0,
+          delay: 0.4,
+          duration: 0.1,
+          onStart: () => changeItem(1),
+          onReverseComplete: () => changeItem(0),
+        }, "<")
+        .to(textItems[1], { duration: 0.5, color: "#929292" }, ">")
+        .to(textItems[2], { duration: 0.5, color: "white" }, "<")
+        .to(numberBoxes[1], {
+          duration: 0.5,
+          background: "radial-gradient(circle, #020205, #020205 42%, #020205 82%)",
+          borderColor: "#ffffff45",
+          color: "#929292",
+        }, "<")
+        .to(numberBoxes[2], {
+          duration: 0.5,
+          background: "radial-gradient(circle, #fff, #d9f5fd 42%, #cfc2ee 82%)",
+          borderColor: "transparent",
+          color: "black",
+        }, "<")
+        .to(scrollSteps[1], {
+          opacity: 0,
+          delay: 0.4,
+          duration: 0.1,
+          onStart: () => changeItem(2),
+          onReverseComplete: () => changeItem(1),
+        }, "<");
+
+      tl2.from(".integration-mobile", {
+        filter: "blur(4px)",
+        top: "0%",
+      }).from(".integration-crm", {
+        filter: "blur(4px)",
+        top: "55%",
+        left: "0%",
+      }, "<").from(".integration-website", {
+        filter: "blur(4px)",
+        right: "0%",
+        top: "55%",
+      }, "<");
+    });
+
+    // ✅ Deep-link scrolling fix
+    setTimeout(() => {
+      const hash = window.location.hash;
+      if (hash) {
+        const target = document.querySelector(hash);
+        if (target) {
+          gsap.to(window, {
+            scrollTo: {
+              y: target,
+              offsetY: 50,
+            },
+            duration: 1,
+            ease: "power2.out",
+          });
+        }
+      }
+    }, 1000); // Wait for everything to be ready
+
+    // ✅ Smooth scroll on anchor click
+    document.querySelectorAll('a[href^="#bookdemo"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        gsap.to(window, {
+          scrollTo: {
+            y: "#bookdemo",
+            offsetY: 50,
+          },
+          duration: 1,
+          ease: "power2.out",
+        });
+      });
+    });
+  });
+</script>
+
+<!-- ✅ Demo Booking Form Script -->
+<script>
   const form = document.getElementById("email-form");
 
-  // Load existing bookings from localStorage or empty array
   const bookings = JSON.parse(localStorage.getItem("demoBookings")) || [];
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault(); // prevent default GET submission
+  form?.addEventListener("submit", function (e) {
+    e.preventDefault();
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim().toLowerCase();
 
-    // Check if this email already exists in bookings
-    const alreadyBooked = bookings.some(
-      (entry) => entry.email === email
-    );
+    const alreadyBooked = bookings.some((entry) => entry.email === email);
 
     if (alreadyBooked) {
       alert("❌ You've already booked a demo with this email.");
       return;
     }
 
-    // Save new booking
     bookings.push({ name, email });
     localStorage.setItem("demoBookings", JSON.stringify(bookings));
 
-    // Show success message
     alert(`✅ Thank you ${name}, your demo has been booked!`);
-
-    // Optional: reset the form
     form.reset();
   });
 </script>
+
+
 
   </body>
 </html>
