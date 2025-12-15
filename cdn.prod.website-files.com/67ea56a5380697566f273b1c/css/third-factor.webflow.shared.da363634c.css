@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
-  font-family: sans-serif;
+    font-family: "Geist";
 }
 
 body {
@@ -93,7 +94,7 @@ pre {
 }
 
 code, kbd, pre, samp {
-  font-family: monospace;
+  /* font-family: monospace; */
   font-size: 1em;
 }
 
@@ -168,12 +169,12 @@ td, th {
   padding: 0;
 }
 
-@font-face {
+/* @font-face {
   font-family: webflow-icons;
   src: url("data:application/x-font-ttf;charset=utf-8;base64,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") format("truetype");
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 [class^="w-icon-"], [class*=" w-icon-"] {
   speak: none;
@@ -184,7 +185,7 @@ td, th {
   font-style: normal;
   font-weight: normal;
   line-height: 1;
-  font-family: webflow-icons !important;
+  /* font-family: webflow-icons !important; */
 }
 
 .w-icon-slider-right:before {
@@ -224,7 +225,7 @@ body {
   background-color: #fff;
   min-height: 100%;
   margin: 0;
-  font-family: Arial, sans-serif;
+    font-family: "Geist", sans-serif;
   font-size: 14px;
   line-height: 20px;
 }
@@ -1042,7 +1043,7 @@ textarea.w-input, textarea.w-select {
 .w-widget-twitter-count-shim .w-widget-twitter-count-inner {
   text-align: center;
   color: #999;
-  font-family: serif;
+  /* font-family: serif; */
   font-size: 15px;
   line-height: 12px;
   position: relative;
@@ -1427,7 +1428,7 @@ textarea.w-input, textarea.w-select {
   -webkit-tap-highlight-color: transparent;
   background: #000000e6;
   outline: 0;
-  font-family: Helvetica Neue, Helvetica, Ubuntu, Segoe UI, Verdana, sans-serif;
+  /* font-family: Helvetica Neue, Helvetica, Ubuntu, Segoe UI, Verdana, sans-serif; */
   font-size: 17px;
   font-style: normal;
   font-weight: 300;
@@ -2046,7 +2047,7 @@ textarea.w-input, textarea.w-select {
   display: grid;
 }
 
-@font-face {
+/* @font-face {
   font-family: Luga;
   src: url("https://cdn.prod.website-files.com/67ea56a5380697566f273b1c/67ea585bbf68badb7633d57e_LufgaLight.woff") format("woff");
   font-weight: 300;
@@ -2180,11 +2181,11 @@ textarea.w-input, textarea.w-select {
   font-weight: 900;
   font-style: italic;
   font-display: swap;
-}
+} */
 
 :root {
   --white: white;
-  --blue: #6b57ff;
+  --blue: #54afff;
   --black: black;
   --light-black: #0c0c0c;
   --background: #020205;
@@ -2243,7 +2244,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .heading-1 {
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist", Georgia, sans-serif;
   font-size: 64px;
   font-weight: 500;
   line-height: 70px;
@@ -2272,7 +2273,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .heading-2 {
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist", Georgia, sans-serif;
   font-size: 44px;
   font-weight: 500;
   line-height: 44px;
@@ -2302,7 +2303,7 @@ textarea.w-input, textarea.w-select {
   text-align: left;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist", Georgia, sans-serif;
   font-size: 32px;
   font-weight: 400;
   line-height: 32px;
@@ -2326,7 +2327,7 @@ textarea.w-input, textarea.w-select {
 .heading-4 {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist", Georgia, sans-serif;
   font-size: 24px;
   font-weight: 400;
 }
@@ -2360,7 +2361,7 @@ textarea.w-input, textarea.w-select {
   max-width: none;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist", Georgia, sans-serif;
   font-size: 16px;
   line-height: 22px;
 }
@@ -2392,7 +2393,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .heading-5 {
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist";
   font-size: 20px;
   font-weight: 400;
 }
@@ -2406,7 +2407,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .heading-7 {
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist";
   font-size: 18px;
   font-weight: 400;
 }
@@ -2493,7 +2494,7 @@ textarea.w-input, textarea.w-select {
   align-items: center;
   width: 100%;
   max-width: 162px;
-  height: 16px;
+  height: 25px;
   display: flex;
 }
 
@@ -2643,13 +2644,13 @@ textarea.w-input, textarea.w-select {
 
 .navlink {
   padding: 10px;
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist";
   text-decoration: none;
   display: block;
 }
 
 .navlink.heading-5.font-white {
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist";
 }
 
 .navlink.paragraph.font-white {
@@ -2671,7 +2672,7 @@ textarea.w-input, textarea.w-select {
 .btn {
   border-radius: 28px;
   padding: 8px 37px;
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist";
   font-weight: 600;
   text-decoration: none;
 }
@@ -2695,7 +2696,7 @@ textarea.w-input, textarea.w-select {
 
 .btn-text {
   color: #000;
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist";
   font-size: 14px;
   line-height: 16px;
   text-decoration: none;
@@ -2744,11 +2745,11 @@ textarea.w-input, textarea.w-select {
 
 .list-dot {
   border: 2px solid var(--blue);
-  background-color: var(--white);
+  background-color: var(--blue);
   border-radius: 100%;
   width: 6px;
   height: 6px;
-  box-shadow: 0 2px 6.2px #9cb2ff, 0 -2px 9.8px #e59cff;
+  box-shadow: 0 2px 6.2px var(--blue), 0 -2px 9.8px #e59cff;
 }
 
 .list-item {
@@ -2962,7 +2963,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .text-xs {
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist";
   font-size: 14px;
   line-height: 14px;
 }
@@ -3576,7 +3577,7 @@ textarea.w-input, textarea.w-select {
 .form-field::placeholder {
   color: #ffffffa8;
   background-color: #0000;
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist";
   font-size: 16px;
 }
 
@@ -3825,7 +3826,7 @@ textarea.w-input, textarea.w-select {
 
 .text-block-4 {
   z-index: 57;
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist";
   font-size: 16px;
   font-weight: 400;
   position: relative;
@@ -3960,7 +3961,7 @@ textarea.w-input, textarea.w-select {
 }
 
 .slider-pagination-text {
-  font-family: Luga, Georgia, sans-serif;
+  font-family: "Geist";
   font-size: 16px;
   line-height: 16px;
 }
@@ -4549,7 +4550,7 @@ textarea.w-input, textarea.w-select {
   .swiper-description-header {
     color: var(--white);
     text-align: center;
-    font-family: Luga, Georgia, sans-serif;
+    font-family: "Geist";
     font-size: 24px;
     line-height: 24px;
   }
@@ -4557,7 +4558,7 @@ textarea.w-input, textarea.w-select {
   .swiper-description-text {
     color: var(--white);
     text-align: center;
-    font-family: Luga, Georgia, sans-serif;
+    font-family: "Geist";
     line-height: 14px;
   }
 
