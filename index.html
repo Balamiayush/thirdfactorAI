@@ -120,6 +120,71 @@
           position: absolute;
         }
       }
+      .div-block-55{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .div-block-56{
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+       
+      }
+      .follow-us{
+        font-size: 12px;
+        font-weight: 400;
+        color: #B2BEC8;
+        margin-bottom: 0;
+      }
+      .social-iconsContainer{
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        /* background: red; */
+        min-width: 193px;
+        height: 24px;
+      }
+      .social-icons{
+        display: flex;
+        align-items: center;
+        /* background: red; */
+        justify-content: center;
+        gap: 18px;
+      }
+      .footer-up{
+        width: 100%;
+        display: flex;
+        /* background: blue; */
+        align-items: center;
+        justify-content: space-between;
+
+      }
+      @media (max-width: 568px) {
+        .footer-up{
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 40px;
+        }
+        .social-iconsContainer{
+          align-items: center;
+        }
+      }
+      .footer-down{
+        text-align: center; 
+        padding-top: 20px; 
+         font-size: 12px;
+        font-weight: 400;
+        color: #B2BEC8;
+      }
+
     </style>
   </head>
   <body class="body">
@@ -1698,15 +1763,24 @@
             alt=""
           />
         </div>
-        <h2 class="heading-2 font-white heading-8 text-center">
-          info@thirdfactor.ai
-        </h2>
-        <div class="div-block-39">
-          <p class="text-xs font-white">
-            © 2025 Prixa Technologies. All rights reserved.
-          </p>
-          <p class="text-xs font-white hidden">Terms of Service</p>
-          <p class="text-xs font-white hidden">Privacy Policy</p>
+        <div class="div-block-55">
+          <div class="footer-up">
+            <img src="logos/prixaThirdfactor.png" alt="">
+            <div class="div-block-56">
+              <h2 class="heading-2 font-white heading-8 text-center">
+                info@thirdfactor.ai
+              </h2>
+              <div class="social-iconsContainer">
+                <p class="follow-us" >Follow us on</p>
+                <div class="social-icons">
+                  <img src="logos/facebook.svg" alt="">
+                  <img src="logos/instagram.svg" alt="">
+                  <img src="logos/linkedin.svg" alt="">
+                </div>
+              </div>
+            </div>
+            </div>
+            <p class="footer-down">© 2025 Prixa Technologies. All rights reserved.</p>
         </div>
       </div>
     </section>

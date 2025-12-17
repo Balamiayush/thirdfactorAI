@@ -2239,7 +2239,7 @@ textarea.w-input, textarea.w-select {
   grid-column-gap: 63px;
   grid-row-gap: 63px;
   flex-flow: column;
-  max-width: 614px;
+  /* max-width: 614px; */
   display: flex;
 }
 
@@ -3612,8 +3612,9 @@ textarea.w-input, textarea.w-select {
 }
 
 .footer {
-  background-color: var(--background);
+  background-color: #002647;
   width: 100%;
+  overflow: hidden;
 }
 
 .heading-8 {
