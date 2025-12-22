@@ -2235,14 +2235,6 @@ textarea.w-input, textarea.w-select {
   padding-top: 185px;
 }
 
-.container.footer-container {
-  grid-column-gap: 63px;
-  grid-row-gap: 63px;
-  flex-flow: column;
-
-  /* max-width: 614px; */
-  display: flex;
-}
 
 .heading-1 {
   font-family: "Geist", Georgia, sans-serif;
@@ -3615,8 +3607,11 @@ textarea.w-input, textarea.w-select {
 .footer {
   background-color: #020205;
   width: 100%;
+  height: 246px;
+  align-items: center;
+  justify-content: center;
   
-  /* display: flex; */
+  display: flex;
   overflow: hidden;
 }
 
